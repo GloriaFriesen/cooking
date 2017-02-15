@@ -8,6 +8,11 @@ var liter = function(gallon) {
  	return ((celcius *=9) /5) +32;
  	};
 
+//Converts inches to centimeters
+var centimeter = function(inch) {
+	return inch*(2.54);
+}
+
 //User interface
 $(document).ready(function() {
 	$("form#gallonLiter").submit(function() {
@@ -20,6 +25,12 @@ $(document).ready(function() {
 		var celcius = parseInt($("input#celciusFahrenheit").val());
 		var result = conversion(celcius);
 		$("#outputCelciusFahrenheit").text(result);
+		event.preventDefault();
+	});
+	$("form#inchCentimeter").submit(function(){
+		var inch = parseInt($("input#inchCentimeter").val());
+		var result = centimeter(inch);
+		$("#outputInchCentimeter").text(result);
 		event.preventDefault();
 	});
 });
